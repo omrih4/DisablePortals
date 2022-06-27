@@ -34,7 +34,6 @@ for the changes to take effect.
 
 <!-- Badges -->
 [![Fabric API Badge][Fabric API Badge]][Fabric API Download]
-[![Join the Discord for support][Discord Badge]][Discord Invite]
 
 
 <!-- Image URLs -->
@@ -42,8 +41,7 @@ for the changes to take effect.
 [Ex disableEndGateways]: https://media.discordapp.net/attachments/819612740736778291/819735337240363028/image-1.png4.png
 [Config]: https://media.discordapp.net/attachments/819612740736778291/819655485379837992/unknown.png
 
-[Fabric API Badge]: https://i.imgur.com/HabVZJR.png
-[Discord Badge]: https://discord.com/assets/cb48d2a8d4991281d7a6a95d2f58195e.svg
+[Fabric API Badge]: https://i.imgur.com/HabVZJR.png 
 
 <!-- Hyperlink URLs -->
 [Fabric API Download]: https://modrinth.com/mod/fabric-api 
