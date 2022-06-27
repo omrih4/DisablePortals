@@ -35,17 +35,13 @@ for the changes to take effect.
 <!-- Badges -->
 [![Fabric API Badge][Fabric API Badge]][Fabric API Download]
 
-[![Join the Discord for support][Discord Badge]][Discord Invite]
-
 
 <!-- Image URLs -->
 [Ex disableEndPortals]: https://media.discordapp.net/attachments/819612740736778291/819730605943554048/unknown.png
 [Ex disableEndGateways]: https://media.discordapp.net/attachments/819612740736778291/819735337240363028/image-1.png4.png
 [Config]: https://media.discordapp.net/attachments/819612740736778291/819655485379837992/unknown.png
 
-[Fabric API Badge]: https://i.imgur.com/HabVZJR.png
-[Discord Badge]: https://discord.com/assets/cb48d2a8d4991281d7a6a95d2f58195e.svg
+[Fabric API Badge]: https://i.imgur.com/HabVZJR.png 
 
 <!-- Hyperlink URLs -->
-[Fabric API Download]: https://modrinth.com/mod/fabric-api
-[Discord Invite]: https://discord.gg/D7TjNrArMw
+[Fabric API Download]: https://modrinth.com/mod/fabric-api 
