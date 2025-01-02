@@ -13,38 +13,39 @@ import us.spaceclouds42.disableportals.DisablePortals;
 import java.io.File;
 
 import static net.minecraft.server.command.CommandManager.literal;
+
 public class DisablePortalsCommand {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(
-            literal("disableportals")
-                    .requires(source -> source.hasPermissionLevel(2))
-                    .then(
-                        CommandManager.literal("allowNether")
-                                .then(
-                                    CommandManager
-                                            .argument("enable", BoolArgumentType.bool())
-                                            .executes(ctx -> setNetherPortals(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
-                                )
-                    )
-                    .then(
-                        CommandManager.literal("allowEnd")
-                                .then(
-                                    CommandManager
-                                            .argument("enable", BoolArgumentType.bool())
-                                            .executes(ctx -> setEndPortals(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
-                                )
-                    ).then(
-                    CommandManager.literal("allowEndGateways")
-                            .then(
-                                    CommandManager
-                                            .argument("enable", BoolArgumentType.bool())
-                                            .executes(ctx -> setEndGateways(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
-                            )
-                    ).then(
-                        CommandManager
-                                .literal("reloadConfig")
-                                .executes(ctx -> reloadConfig(ctx.getSource()))
-                    )
+                literal("disableportals")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .then(
+                                CommandManager.literal("allowNether")
+                                        .then(
+                                                CommandManager
+                                                        .argument("enable", BoolArgumentType.bool())
+                                                        .executes(ctx -> setNetherPortals(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
+                                        )
+                        )
+                        .then(
+                                CommandManager.literal("allowEnd")
+                                        .then(
+                                                CommandManager
+                                                        .argument("enable", BoolArgumentType.bool())
+                                                        .executes(ctx -> setEndPortals(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
+                                        )
+                        ).then(
+                                CommandManager.literal("allowEndGateways")
+                                        .then(
+                                                CommandManager
+                                                        .argument("enable", BoolArgumentType.bool())
+                                                        .executes(ctx -> setEndGateways(ctx.getSource(), BoolArgumentType.getBool(ctx, "enable")))
+                                        )
+                        ).then(
+                                CommandManager
+                                        .literal("reloadConfig")
+                                        .executes(ctx -> reloadConfig(ctx.getSource()))
+                        )
 
         );
     }
@@ -54,12 +55,12 @@ public class DisablePortalsCommand {
         DisablePortals.CONF.saveConfig(new File(FabricLoader.getInstance().getConfigDir() + "/DisablePortals.json"));
 
         if (enable) {
-            source.sendFeedback(
-                    Text.literal ("Enabled Nether portals").formatted(Formatting.GREEN), false
+            source.sendFeedback(() ->
+                    Text.literal("Enabled Nether portals").formatted(Formatting.GREEN), false
             );
         } else {
-            source.sendFeedback(
-                    Text.literal ("Disabled Nether portals").formatted(Formatting.RED),
+            source.sendFeedback(() ->
+                            Text.literal("Disabled Nether portals").formatted(Formatting.RED),
                     false
             );
         }
@@ -71,12 +72,12 @@ public class DisablePortalsCommand {
         DisablePortals.CONF.saveConfig(new File(FabricLoader.getInstance().getConfigDir() + "/DisablePortals.json"));
 
         if (enable) {
-            source.sendFeedback(
-                    Text.literal ("Enabled End portals").formatted(Formatting.GREEN), false
+            source.sendFeedback(() ->
+                    Text.literal("Enabled End portals").formatted(Formatting.GREEN), false
             );
         } else {
-            source.sendFeedback(
-                    Text.literal ("Enabled End portals").formatted(Formatting.RED), false
+            source.sendFeedback(() ->
+                    Text.literal("Enabled End portals").formatted(Formatting.RED), false
             );
         }
 
@@ -88,11 +89,11 @@ public class DisablePortalsCommand {
         DisablePortals.CONF.saveConfig(new File(FabricLoader.getInstance().getConfigDir() + "/DisablePortals.json"));
 
         if (enable) {
-            source.sendFeedback(
+            source.sendFeedback(() ->
                     Text.literal("Enabled End Gateway Portals").formatted(Formatting.GREEN), false
             );
         } else {
-            source.sendFeedback(
+            source.sendFeedback(() ->
                     Text.translatable("Disabled End Gateway Portals").formatted(Formatting.RED), false
             );
         }
@@ -103,7 +104,7 @@ public class DisablePortalsCommand {
     private static int reloadConfig(ServerCommandSource source) {
         DisablePortals.CONF = Config.loadConfig(new File(FabricLoader.getInstance().getConfigDir() + "/DisablePortals.json"));
 
-        source.sendFeedback(
+        source.sendFeedback(() ->
                 Text.translatable("Configuration Reloaded!").formatted(Formatting.GREEN), false
         );
 
