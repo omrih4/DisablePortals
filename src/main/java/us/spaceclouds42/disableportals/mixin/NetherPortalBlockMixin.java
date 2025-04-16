@@ -3,6 +3,7 @@ package us.spaceclouds42.disableportals.mixin;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.NetherPortalBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +21,7 @@ abstract class NetherPortalBlockMixin {
             ),
             cancellable = true
     )
-    private void disableNetherPortal(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
+    private void disableNetherPortal(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, CallbackInfo ci) {
         if (DisablePortals.CONF.main.disableNetherPortals) {
             ci.cancel();
         }
